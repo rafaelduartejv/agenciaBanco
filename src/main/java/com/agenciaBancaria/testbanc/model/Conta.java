@@ -59,4 +59,24 @@ public class Conta {
             System.out.println("Não foi possivel realizar o depósito.");
         }
     }
+
+    public void sacar(Double valor){
+        if (valor > 0 && this.getSaldo() >= valor){
+            setSaldo(getSaldo() - valor);
+            System.out.println("Saque realizado com sucesso!");
+        }else {
+            System.out.println("Não foi possivel realizar o saque!");
+        }
+    }
+
+    public void transferir(Conta contaParaDeposito, Double valor){
+        if (valor > 0 && this.getSaldo() >= valor){
+            setSaldo(getSaldo() - valor);
+
+            contaParaDeposito.saldo = contaParaDeposito.getSaldo() + valor;
+            System.out.println("Transferência realizada com sucesso!");
+        }else {
+            System.out.println("Não foi possivel realizar a transferência!");
+        }
+    }
 }
